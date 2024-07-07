@@ -4,8 +4,8 @@ import botocore
 def lambda_handler(event, context):
     # Entrada
     s3 = boto3.client('s3')
-    bucket_name = event['name']
-    directory_name = event.get('directory', event['name_direct'])  # Nombre del directorio por defecto
+    bucket_name = event['body']['name']
+    directory_name = event.get('directory', event['body']['name_direct'])  # Nombre del directorio por defecto
 
     exists = True
 
